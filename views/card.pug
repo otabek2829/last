@@ -1,0 +1,25 @@
+extends layout
+block content
+  .fluid.add
+     .container.py-5 
+        .row 
+            each data in db
+                .col-lg-4.col-md-4.col-sm-6.my-2
+                    .card.pb-5
+                        .card-img(dataId= "/add/product/"+data.id) 
+                            img(src= "images/"+ data.img, alt="")
+                            if data.sale 
+                                p.saleing=  data.sale
+                                 | %
+                        .card-text 
+                            h3= data.title 
+                            .price_box
+                                p.price= data.price 
+                                    |  Sum 
+                                if data.sale 
+                                  p.sale=  data.price  - (data.price * data.sale / 100)+  '.sum' 
+                            .card_bottom 
+                                p.date= data.dataTime.toLocaleDateString() 
+                                    i.far.fa-calendar-alt 
+                                p.category=  data.category
+                                a(href="/delete/"+data.id class="btn btn-danger").py-3.i.fas.fa-trash-alt.d-block  Delete

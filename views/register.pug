@@ -1,0 +1,13 @@
+extends layout
+block content
+    .container-fluid.add.py-4
+      .col-lg-4.m-auto
+        h1= title
+        form(action="/register"  method='POST' class="register")
+            input(type="text" placeholder="Ismingizni yozing" name="names").form-control.my-4
+            input(type="text" placeholder="Familyanigizni yozing" name="surname").form-control.my-4
+            input(type="text" placeholder="Loginigizni yozing" name="login").form-control.my-4
+            input(type="password" placeholder="Parolingizni yozing" name="password").form-control.my-4
+            input(type="password" placeholder="Parolingizni qaytadan yozing" name="password2").form-control.my-4
+            input(type="text" placeholder="Telefonigizni yozing" name="phone").form-control.my-4
+            button.btn.btn-grad Ro'yhatdan o'tish  

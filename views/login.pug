@@ -1,0 +1,9 @@
+extends layout
+block content
+    .container-fluid.add.pt-5 
+       .col-lg-4.m-auto
+        h1= title
+        form(action="/register/login"  method='POST' class="login register") 
+            input(type="text" placeholder="Loginigizni yozing" name="username").form-control.mt-5.mb-5 
+            input(type="text" placeholder="Parolingizni yozing" name="password").form-control.mt-5.mb-4 
+            button.btn.btn-grad.d-block.m-auto Kirish 

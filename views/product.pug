@@ -1,0 +1,39 @@
+extends layout
+block content
+ if data
+   .add
+    .container 
+       .row 
+          .col-lg-6.m-auto 
+                    .cards 
+                        .card-imgs 
+                            img(src= "images/"+ data.img, alt="")
+                            p.saleing=  data.sale
+                                | %
+                        .card-text 
+                            h3= data.title 
+                            .price_box
+                                p.price  Narxi:  #{data.price}
+                                if data.sale 
+                                    p.sale Sale: #{data.price - (data.price * data.sale / 100)} 
+                            .card_bottom 
+                                p.category=  data.category
+                                p.date= data.dataTime.toLocaleDateString() 
+                                    i.far.fa-calendar-alt 
+                            .card-comment 
+                                p= data.comment
+                                a(href="/add/update/"+data.id class="btn btn-success") Update 
+                                 .i.fas.fa-pen  
+                                a(href="/add/delete/"+data.id class="btn btn-danger") Delete 
+                                 .i.fas.fa-trash-alt  
+        
+          .col-lg-4 
+                .card-info 
+                    h3 Foydalanuvchi 
+                    //-   h4= userdb.names
+                    //- .card_info_bio 
+                    //-     .left 
+                    //-        img(src="", alt="user")
+                    //-     .right 
+                    //-         h4= userdb.surname
+                    //-         p= userdb.phone

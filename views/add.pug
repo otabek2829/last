@@ -1,0 +1,39 @@
+extends layout
+block content
+  .container-fluid.add.pt-5
+    .col-lg-5.m-auto
+     form(  method="POST" enctype="multipart/form-data" class="register"  )
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Mahsulot nomi
+            if data
+                input.form-control#exampleInputEmail1(type='text' name="title" placeholder="Mahsulot nomi"  value= data.title)
+            else 
+                input.form-control#exampleInputEmail1(type='text' name="title"  )
+        .mb-3
+            label.form-label(for='exampleInputPassword1') Mahsulotning narxi
+            if data
+                input.form-control#exampleInputEmail1(type='text' name="price" placeholder="Mahsulotning narxi" value= data.price)
+            else 
+                input.form-control#exampleInputEmail1(type='text' name="price" )            
+        .mb-3
+            label.form-label(for='exampleInputPassword1') Mahsulotning chegirmasi
+            if data
+                input.form-control#exampleInputEmail1(type='text' name="sale" placeholder="Mahsulotning chegirmasi" value= data.sale)
+            else 
+                input.form-control#exampleInputEmail1(type='text' name="sale" )               
+        .mb-3
+            label.form-label(for='exampleInputPassword1') Mahsulotlar Ro'yahati
+            select(name="category" ).form-control
+                option(value="car") Moshina  
+                option(value="device") Qurulmalar  
+                option(value="kiym") Kiym 
+        .mb-3
+            label.form-label(for='exampleInputPassword1') Mahsulot haqida batafsil
+            if data
+                textarea(name="comment", cols="10", rows="4").form-control#exampleInputPassword1= data.comment 
+            else 
+                 textarea(name="comment", cols="10", rows="4").form-control#exampleInputPassword1 
+        .mb-3
+            label.form-label(for='exampleInputPassword1') Mahsulotning  rasmi
+            input(type="file" name="img").form-control#exampleInputPassword1
+        button.btn.btn-grad(type='submit')= btn
